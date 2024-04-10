@@ -1,0 +1,51 @@
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./assets/css/desktop_tmpl.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mobile.css">
+</head>
+<header>
+    <img class="header-logo" src="/assets/img/logo.png">
+    <div class="info-container">
+        <h4>Kanban Project Management Tool</h4>
+        <div id="headerInfo" class="help-container">
+            <a href="./help.html" id="help"><img class="help-logo cp" src="./assets/img/help.png"></a>
+            <button class="user-profile cp" onclick="showLogoutMenu()">
+                <div class="ellipse">
+                    <div class="user-initial">
+                        <span id="userInitial"></span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="logout-menu d-none" id="logout-menu">
+        <a href="./legal_notice.html">Legal Notice</a>
+        <a href="./privacy_policy.html">Privacy Policy</a>
+        <a href="./index.html" onclick="logout()">Log out</a>
+    </div>
+</header>
+<nav>
+    <div id="navLinks" class="links">
+        <a href="./summary.html" id="summary-nav"><img src="./assets/img/summary.png"><span>Summary</span></a>
+        <a href="./add_tasks.html" id="addTask-nav"><img src="./assets/img/add_task.png"><span>Add Task</span></a>
+        <a href="./board.html" id="board-nav"><img src="./assets/img/board.png"><span>Board</span></a>
+        <a href="./contacts.html" id="contacts-nav"><img src="./assets/img/contacts.png"><span>Contacts</span></a>
+    </div>
+</nav>
+<li class="legal-topics-side-menu">
+    <a href="./privacy_policy.html">Privacy Policy</a>
+    <a href="./legal_notice.html">Legal notice</a>
+</li>
+<footer id="mobileNavLinks" class="mobile-links cp">
+    <a href="./summary.html" id="summary-nav-mobile"><img src="./assets/img/mobile_summary.png"></a>
+    <a href="./board.html" id="board-nav-mobile"><img src="./assets/img/mobile_board.png"></a>
+    <a href="./add_tasks.html" id="addTask-nav-mobile"><img src="./assets/img/mobile_addtask.png"></a>
+    <a href="./contacts.html" id="contacts-nav-mobile"><img src="./assets/img/mobile_contacts.png"></a>
+</footer>
+<script src="./script.js"></script>
+<script src="./js/login.js"></script>
+<script src="./js/sign_up.js"></script>

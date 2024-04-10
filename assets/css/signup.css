@@ -1,0 +1,59 @@
+body {
+    background-color: var(--clr-main1);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    margin: 48px 0 8px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 28px;
+
+    div {
+        width: 204px;
+    }
+
+    a {
+        color: var(--clr-main1);
+
+        &:hover {
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--clr-lightblue);
+        }
+    }
+}
+
+.sign-up-container {
+    width: 96%;
+}
+
+.arrow-left {
+    position: relative;
+
+    .back-btn {
+        position: absolute;
+        width: 32px;
+        top: 64px;
+        left: 48px;
+        z-index: 9;
+    }
+}
+
+.underline {
+    width: 40%;
+}

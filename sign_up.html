@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/signup.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <link rel="stylesheet" href="./mobile.css">
+    <title>Join</title>
+</head>
+<body onload="initSignUp()">
+    <header class="login-header">
+        <img class="logo" src="./assets/img/logo.png">
+    </header>
+    <div class="sign-up-container">
+        <div class="form-box arrow-left">
+            <div class="back-btn cp" onclick="backButton()"><img src="./assets/img/arrow_left.png"></div>
+            <form class="input-box" onsubmit="register(); return false;">
+                <h1>Sign up</h1>
+                <img class="underline" src="./assets/img/underline_login.png">
+                <div class="input-field">
+                    <input id="name" type="text" autofocus autocomplete="name" required placeholder="Name">
+                    <img src="./assets/img/person.png">
+                </div>
+                <div class="input-field">
+                    <input id="email" class="" type="email" autofocus autocomplete="email" required placeholder="Email">
+                    <img src="./assets/img/mail.png">
+                    <div class="error-msg-box" id="email-exist"></div>
+                </div>
+                <div class="input-field">
+                    <input id="password" type="password" onkeyup="togglePasswordEye('password')" autofocus autocomplete="new-password" minlength="5"
+                        required placeholder="Password">
+                    <img id="password-icon" src="./assets/img/lock.png" onclick="togglePasswordVisibility('password')">
+                </div>
+                <div class="input-field">
+                    <input id="confirmedPassword" type="password" onkeyup="togglePasswordEye('confirmedPassword')"
+                        autofocus minlength="5" autocomplete="new-password" required placeholder="Confirm Password">
+                    <img id="confirmedPassword-icon" src="./assets/img/lock.png"
+                        onclick="togglePasswordVisibility('confirmedPassword')">
+                    <div class="error-msg-box" id="password-match"></div>
+                </div>
+                <div class="checkbox">
+                    <img class="cp" onclick="checkedSignup()" id="accept-policy" src="./assets/img/check_unchecked.png">
+                    <div>I accept the <a href="./privacy_policy.html">Privacy policy</a></div>
+                </div>
+                <div class="btn-box">
+                    <button id="signupBtn" class="blue-btn btn-disabled cp" disabled>Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="legal-topics">
+        <a href="./privacy_policy.html" target="_blank">Privacy Policy</a>
+        <a href="./legal_notice.html" target="_blank">Legal notice</a>
+    </footer>
+    <div class="successfully-popup d-none" id="popup">
+    <div class="successfully-popover-text">You Signed Up successfully</div>
+    </div>
+    <script src="./js/contacs.js"></script>
+    <script src="./script.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/sign_up.js"></script></body>
+</html>

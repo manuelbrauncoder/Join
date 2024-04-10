@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <link rel="stylesheet" href="./assets/css/add_tasks.css">
+    <link rel="stylesheet" href="./assets/css/board.css">
+    <link rel="stylesheet" href="./assets/css/boardTaskDetailBox.css">
+    <title>Join</title>
+</head>
+<body onload="initBoard()">
+    <div template="./assets/templates/desktop_template.html"></div>
+    <div class="addTaskBox d-none" id="addTaskBox">
+        <div id="addTaskHeadline" class="addTaskHeadline">
+            <h1>Add Task</h1>
+            <img class="cp" onclick="hideAddTaskBox()" src="./assets/img/close.png" alt="">
+        </div>
+        <div>
+            <div class="addTaskInBoard" id="addTaskInBoardContainer"></div>
+        </div>
+        <div class="btnsBoardAddTask">
+            <button onclick="hideMobileAddTaskBox()" class="white-btn cp">Cancel</button>
+            <button class="blue-btn cp" form="addTaskForm">Create Task</button>
+        </div>
+    </div>
+    <div id="mainContent" class="mainContent">
+        <section class="findAndAdd">
+            <div class="searchField">
+                <img src="./assets/img/divider_vertical.png" alt="">
+                <img src="./assets/img/search.png" alt="">
+                <input id="findTask" type="text" placeholder="Find Task" onkeyup="searchTasks()" autocomplete="off">
+            </div>
+            <button class="blue-btn boradAddTaskBtn cp" onclick="showAddTaskBox('To Do')">
+                <span>Add Task</span>
+                <img src="./assets/img/plus_white.png" alt="">
+            </button>
+        </section>
+        <section class="taskContainer">
+            <div class="taskBox">
+                <div class="taskHeadline"><span>To Do</span><img class="cp" onclick="showAddTaskBox('To Do')"
+                        src="./assets/img/plus button.png" alt=""></div>
+                <div class="toDoDiv" id="toDoContainer" ondragover="allowDrop(event); highlight('toDoContainer')"
+                    ondrop="moveTo('To Do'); removeHighlight('toDoContainer')"
+                    ondragleave="removeHighlight('toDoContainer')"></div>
+            </div>
+            <div class="taskBox">
+                <div class="taskHeadline"><span>In progress</span><img class="cp"
+                        onclick="showAddTaskBox('In progress')" src="./assets/img/plus button.png" alt=""></div>
+                <div class="toDoDiv" id="inProgressContainer"
+                    ondragover="allowDrop(event); highlight('inProgressContainer')"
+                    ondrop="moveTo('In progress'); removeHighlight('inProgressContainer')"
+                    ondragleave="removeHighlight('inProgressContainer')"></div>
+            </div>
+            <div class="taskBox">
+                <div class="taskHeadline"><span>Await feedback</span><img class="cp"
+                        onclick="showAddTaskBox('Await feedback')" src="./assets/img/plus button.png" alt=""></div>
+                <div class="toDoDiv" id="awaitFeedbackContainer"
+                    ondragover="allowDrop(event); highlight('awaitFeedbackContainer')"
+                    ondrop="moveTo('Await feedback'); removeHighlight('awaitFeedbackContainer')"
+                    ondragleave="removeHighlight('awaitFeedbackContainer')"></div>
+            </div>
+            <div class="taskBox">
+                <div class="taskHeadline"><span>Done</span></div>
+                <div class="toDoDiv" id="doneContainer" ondragover="allowDrop(event); highlight('doneContainer')"
+                    ondrop="moveTo('Done'); removeHighlight('doneContainer')"
+                    ondragleave="removeHighlight('doneContainer')"></div>
+            </div>
+        </section>
+    </div>
+    <div onclick="hideDetailBox()" id="detailViewBg" class=" detailViewBg d-none"></div>
+    <div id="detailViewBox" class="detailViewBox d-none">
+        <div id="detailView"></div>
+        <div id="editView" class="d-none">
+            <img onclick="hideEditbox()" class="cp closeEditBtn" src="./assets/img/close.png" alt="">
+            <div class="editTaskSection" id="editTaskContainer"></div>
+            <button class="blue-btn cp okBtn" onclick="saveEditedTask()"><span>Ok</span><img
+                    src="./assets/img/check_white.png" alt=""></button>
+        </div>
+    </div>
+    <div class="successfully-popup d-none" id="popupAddtask">
+        <div class="successfully-popover-text">
+            <span>Task added to board</span>
+            <img src="./assets/img/board_white.png">
+        </div>
+    </div>
+    <script src="./js/dragAndDrop.js"></script>
+    <script>
+        window.addEventListener('resize', function () {
+            updatePositions();
+        });
+    </script>
+    <script src="./js/addTask_template.js"></script>
+    <script src="./js/add_tasks.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/editTask.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/sign_up.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

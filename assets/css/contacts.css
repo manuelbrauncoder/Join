@@ -1,0 +1,421 @@
+h2,
+h3 {
+    color: black !important;
+}
+
+.contactSection {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    margin-left: 232px;
+}
+
+.contactList {
+    width: 456px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 96px;
+    padding: 0 28px 0 52px;
+    box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+#allContacts {
+    padding-top: 100px;
+}
+
+.blue-btn {
+    gap: 10px;
+    width: 100%;
+    margin: 32px 0 17px 0;
+}
+
+.addBtnDiv {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    width: 357px;
+}
+
+.letterBox {
+    width: 100%;
+    font-size: 22px;
+
+}
+
+.letter {
+    font-size: 22px;
+    padding: 10px 0 25px 36px;
+    outline: none;
+    border-bottom: 1px solid rgba(209, 209, 209, 1);
+}
+
+.contactSmall {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    padding: 15px 24px;
+    gap: 35px;
+    font-size: 19px;
+    border-radius: 10px;
+
+    p {
+        font-size: 16px;
+        color: var(--clr-main1);
+        padding-top: 5px;
+        word-break: break-word;
+    }
+
+    &:hover {
+        background-color: var(--clr-main2);
+    }
+}
+
+.contactBgClicked {
+    background-color: var(--clr-main1);
+    color: white;
+
+    &:hover {
+        background-color: var(--clr-main1);
+    }
+
+    p {
+        background-color: var(--clr-main1);
+        color: white;
+    }
+}
+
+.initials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    min-width: 42px;
+    aspect-ratio: 1/1;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+/*********************** Start floatingContact ***********************/
+#floatingContact {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 0 0 62px;
+    margin-top: 96px;
+    gap: 21px;
+    width: 40%;
+    animation: slidingRight 0.2s ease-in-out;
+}
+
+#floatMobil {
+    display: none;
+    justify-content: space-between;
+}
+
+#arrowBack {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+
+    img {
+        width: 34px;
+    }
+
+}
+
+.initialsFloating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    color: white;
+    min-width: 120px;
+    aspect-ratio: 1/1;
+    border: 3px solid #F2F2F2;
+    border-radius: 50%;
+}
+
+.floatingTop {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+}
+
+.floatingInteracts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+        font-size: 47px;
+        font-weight: 500;
+        gap: 5px;
+    }
+}
+
+.floatingBtn {
+    display: flex;
+    gap: 16px;
+
+}
+
+.floatingBtn p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.1s;
+
+    &:hover {
+        color: var(--clr-blue);
+        font-weight: 700;
+    }
+}
+
+.floatingBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+#emailFloating {
+    font-size: 16px;
+    color: var(--clr-main1);
+}
+
+@keyframes slidingRight {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slidingLeft {
+    from {
+        transform: translateX(-200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/*********************** Start Popup ***********************/
+.back {
+    position: absolute !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 500ms ease-in-out;
+    background-color: #ffffffb6;
+    /* overflow-y: auto; */
+    z-index: 100;
+    padding: 0 20px;
+}
+
+.overlayContactPopup {
+    position: absolute;
+    right: 0;
+    width: 584px;
+    height: 100vh;
+    z-index: 50;
+    border: solid 1px #E3E3E3;
+    border-radius: 30px;
+    background-color: white;
+    animation: slidingRight 0.2s ease-in-out;
+}
+
+#topPopup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--clr-lightblue);
+    border: solid 1px var(--clr-lightblue) !important;
+    color: white;
+    padding-bottom: 91px;
+    gap: 12px;
+    font-size: 58px;
+
+    img {
+        height: 66px;
+    }
+
+    span {
+        font-size: 48px;
+        font-weight: 700px;
+    }
+
+    p {
+        font-size: 27px;
+    }
+}
+
+#closePopup {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--clr-lightblue);
+    padding: 24px 24px 35px 0;
+
+    img:hover {
+        border-radius: 16px;
+        background-color: var(--clr-main1);
+        cursor: pointer;
+    }
+}
+
+#bottomPopup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border:solid 1px #E3E3E3;
+    border-bottom: none;
+}
+
+.avatarDiv {
+    padding: 72px 0 16px 0;
+}
+
+#avatar {
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+}
+
+.input-field {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 422px;
+
+    img {
+        position: absolute;
+        margin-right: 16px;
+    }
+}
+
+input {
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    padding: 12px 21px;
+    margin: 16px 0 16px 0;
+    align-items: center;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(209, 209, 209, 1);
+
+    &:focus {
+        border-bottom: 1px solid var(--clr-lightblue);
+    }
+}
+
+#popupBtn {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 76px;
+    margin-bottom: 63px;
+}
+
+.blue-btn-edit{
+    width: 174px;
+    p{
+        font-size: 23px;
+        width: 162px;
+        flex: 1;
+    }
+    svg{
+        margin-right: 10px;
+    }
+    gap: 0 !important;
+}
+
+.btnCancel,
+.btnDelete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 10px;
+    color: #647188;
+    background-color: white;
+    gap: 10px;
+    font-size: 23px;
+    border: 1px solid #647188;
+    transition-duration: 120ms;
+
+    &:hover {
+        color: var(--clr-main1);
+        border-color: var(--clr-main1);
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px 0px;
+        path {
+            stroke: var(--clr-lightblue);
+        }
+    }
+
+    &:active {
+        box-shadow: none;
+        border-color: #647188 !important;
+        color: rgba(100, 113, 136, 1) !important;
+        path {
+            stroke: #647188;
+        }
+    }
+}
+
+.btnCreate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--clr-main1);
+    color: white;
+    gap: 10px;
+    font-size: 23px;
+    transition-duration: 120ms;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    &:hover {
+        background-color: var(--clr-lightblue);
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px 0px;
+    }
+
+    &:active {
+        box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+        background-color: white;
+        color: var(--clr-lightblue);
+        transition: all 1ms;
+    }
+}
+
+#contactMobile,
+#contactMobileFloat,
+.editPopupP {
+    display: none;
+}

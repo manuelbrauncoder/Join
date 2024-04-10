@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./mobile.css">
+    <title>Join</title>
+</head>
+<body onload="init()">
+    <header class="login-header">
+        <img class="logo" id="resetStorage" src="./assets/img/logo_blue.png" onclick="resetStorage(event)">
+        <div class="signup">
+            <span>Not a Join user?</span>
+            <a href="./sign_up.html"><button class="blue-btn cp">Sign up</button></a>
+        </div>
+    </header>
+    <div class="loading-background"></div>
+        <div id="loadingScreen" class="loading-animation">
+            <img id="loadingScreenImg" class="loding-logo" src="./assets/img/loding_logo.png">
+        </div>    
+    <div class="login-container">
+        <div>
+            <div class="form-box">
+                <form class="input-box" onsubmit="logIn(users); return false;">
+                    <h1>Log in</h1>
+                    <img class="underline" src="./assets/img/underline_login.png">
+                    <div class="input-field">
+                        <input type="email" id="email" autofocus autocomplete="email" required placeholder="Email">
+                        <img src="./assets/img/mail.png">
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="password" onkeyup="togglePasswordEye('password')" autofocus
+                            autocomplete="current-password" required minlength="5" placeholder="Password">
+                        <img id="password-icon" onclick="togglePasswordVisibility('password')"
+                            src="./assets/img/lock.png">
+                        <div class="error-msg-box" id="loginMatch"></div>
+                    </div>
+                    <div class="checkbox cp" onclick="rememberMe()">
+                        <img id="remember-me" src="./assets/img/check_unchecked.png">
+                        <span>Remember me</span>
+                    </div>
+                    <div class="btn-box">
+                        <button id="isLoggedIn" class="blue-btn login-btn cp">Log in</button>
+                        <button type="button" class="white-btn btn cp" onclick="guestLogIn(localUsers)">Guest log in</button>
+                    </div>
+                </form>
+            </div>
+            <div class="signup su-mobile">
+                <span>Not a Join user?</span>
+                <a href="./sign_up.html"><button class="blue-btn cp">Sign up</button></a>
+            </div>
+        </div>
+    </div>
+    <footer class="legal-topics">
+        <a href="./privacy_policy.html" target="_blank" id="privacyPolicy">Privacy Policy</a>
+        <a href="./legal_notice.html" target="_blank" id="legalNotice">Legal notice</a>
+    </footer>
+    <script src="./js/templates.js"></script>
+    <script src="./script.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/contacs.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/add_tasks.js"></script>
+    <script src="./js/sign_up.js"></script>
+</body>
+</html>

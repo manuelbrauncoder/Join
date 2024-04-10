@@ -1,0 +1,217 @@
+/* detail view box below */
+.dNone {
+    display: none;
+}
+
+.detailViewBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 15;
+}
+
+.detailViewBox {
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 528px;
+    max-height: 900px;
+    max-height: 90%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    padding: 48px 40px;
+    overflow-y: auto;
+    animation: ease;
+    animation-duration: 250ms;
+}
+
+@keyframes slideFromBottom {
+    from {
+        transform: translate(-50%, 100%);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes slideToBottom {
+    from {
+        transform: translate(-50%, -50%);
+    }
+    to {
+        transform: translate(-50%, 100%);
+    }
+}
+
+.slideFromBottom {
+    animation-name: slideFromBottom;
+}
+
+.slideToBottom {
+    animation-name: slideToBottom;
+}
+
+.taskDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+
+    & h1 {
+        font-size: 40px;
+    }
+}
+
+.categoryAndClose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & img {
+        width: 32px;
+    }
+}
+
+.keyString {
+    font-size: 21px;
+    font-weight: 700;
+    font-family: 'Inter';
+    color: var(--clr-menu);
+}
+
+.openSans400-19 {
+    font-family: 'Open Sans';
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.dateAndPrio {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.detailPrio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 18px;
+}
+
+.contactBubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    background-color: blue;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.assignedToDetailBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.assignedToDetails {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    gap: 16px;
+}
+
+.assignedToDetailView {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subTaskDetail {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.detailViewOptions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+
+    & span {
+        font-family: 'Open Sans';
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+
+        &:hover {
+            scale: 110%;
+            color: var(--clr-blue);
+            font-weight: 700;
+        }
+    }
+}
+
+.subtasksDetailView:hover {
+    width: fit-content;
+    border-radius: 10px;
+    background-color: var(--clr-menu-hover);
+    padding-right: 16px;
+}
+
+.editTaskSection {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.okBtn {
+    margin-left: auto;
+    margin-top: 8px;
+}
+
+.closeEditBtn {
+    display: block;
+    height: 32px;
+    width: 32px;
+    margin-left: auto;
+}
+
+.dateAndPrio {
+    display: flex;
+}
+
+.dateAndIcons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prioIconBoard {
+    width: 32px;
+    height: 32px;
+}
+
+@media(max-width: 600px) {
+    .detailViewBox {
+        padding: 32px 16px;
+    }
+}

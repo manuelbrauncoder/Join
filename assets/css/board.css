@@ -1,0 +1,447 @@
+.addTaskBox {
+    position: absolute;
+    top: -96px;
+    right: -1000px;
+    transition-duration: 225ms;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 96px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    border-radius: 30px 0 30px 30px;
+    width: 518px;
+    overflow-y: auto;
+
+    & button {
+        margin-left: auto;
+        margin-bottom: 32px;
+        margin-right: 32px;
+    }
+}
+
+.colorMain2 {
+    color: var(--clr-main1);
+}
+
+.colorlightGrey {
+    color: rgba(168, 168, 168, 1);
+}
+
+.dflexCC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toMuchDetailView span {
+    background-color: rgba(168, 168, 168, 1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+[draggable="true"] {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+input[type="text"]:disabled {
+    background: rgba(255, 255, 255, 1);
+    cursor: default;
+}
+
+.addTaskInBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* mobile add task */
+.addTaskboxMobile {
+    position: static;
+    align-items: center;
+    border-radius: 0;
+
+    & button {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 110px;
+        margin-top: 8px;
+    }
+}
+
+/* mobile add task */
+.addTaskHeadline {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 72px 40px;
+
+    & img {
+        width: 32px;
+        height: 32px;
+    }
+
+    & h1 {
+        font-size: 48px;
+    }
+}
+
+.mainContent {
+    height: 100dvh;
+    margin-left: 232px;
+    padding-left: 64px;
+    padding-top: 66px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.findAndAdd {
+    display: flex;
+    gap: 32px;
+    margin-top: 96px;
+    justify-content: flex-start;
+
+    & button {
+        gap: 10px;
+    }
+}
+
+.searchField {
+    position: relative;
+    width: 312px;
+    height: 48px;
+    border: 1px solid rgba(168, 168, 168, 1);
+    border-radius: 10px;
+    display: flex;
+    padding: 8px;
+
+    & img:nth-child(2) {
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        transform: translate(0, -50%);
+    }
+
+    & img:nth-child(1) {
+        position: absolute;
+        top: 50%;
+        right: 64px;
+        transform: translate(0, -50%);
+    }
+
+
+    & input {
+        border: none;
+        padding: 0;
+    }
+}
+
+.taskContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.taskBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.taskHeadline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 16px;
+
+    & span {
+        font-size: 23px;
+        font-weight: 700;
+    }
+
+    & img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.btnsBoardAddTask {
+    display: flex;
+    gap: 16px;
+}
+
+.toDoDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.todoBox {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 252px;
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.todoCategory {
+    border-radius: 8px;
+    color: white;
+    padding: 4px 16px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#todoTitle {
+    font-size: 16px;
+    font-weight: 700;
+    word-break: auto-phrase;
+}
+
+#todoDescription {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter';
+    word-break: auto-phrase;
+}
+
+.todoSubtasks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    & span {
+        font-size: 13px;
+        font-weight: 400px;
+        font-family: 'Inter';
+    }
+}
+
+.assignedAndPrio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.assignedAndPrio div:nth-child(1) {
+    display: flex;
+    flex-wrap: wrap;
+
+    & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 400;
+        color: white;
+        background-color: rgba(168, 168, 168, 1);
+        border: 1px solid rgba(255, 255, 255, 1);
+        margin-right: -6px;
+    }
+}
+
+.toMuch span {
+    margin-left: 8px;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 8px;
+    width: 128px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(244, 244, 244, 1);
+    height: 8px;
+    border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--clr-main1);
+    height: 8px;
+    border-radius: 8px;
+}
+
+.emptyBox {
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    color: rgba(168, 168, 168, 1);
+    border-radius: 24px;
+    border: 1px dashed rgba(168, 168, 168, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 252px;
+    height: 56px;
+}
+
+.dragAreaHighlight {
+    border: 1px dashed rgba(168, 168, 168, 1);
+    background-color: rgb(231, 231, 231);
+    border-radius: 24px;
+}
+
+@media(max-width: 1024px) {
+    body {
+        overflow: hidden;
+    }
+
+    .detailTitle {
+        font-size: 24px !important;
+    }
+
+    .mainContent {
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        padding-bottom: 16px;
+    }
+
+    .findAndAdd {
+        padding-top: 16px;
+        justify-content: center;
+    }
+
+    .taskContainer {
+        margin-bottom: 80px;
+        min-width: 100%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    .toDoDiv {
+        overflow-x: auto;
+        flex-direction: row;
+        height: fit-content !important;
+        padding: 8px;
+        min-width: 100vw;
+        overflow-y: hidden;
+    }
+
+    .taskHeadline {
+        width: 100%;
+    }
+
+    .addTaskBoxInAddTasks {
+        margin-top: 0;
+    }
+
+    .todoBox {
+        height: fit-content;
+    }
+
+    .dateAndPrio {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .emptyBox {
+        width: 280px;
+        margin-inline: auto;
+    }
+
+    .findAndAdd {
+        flex-direction: column;
+        padding: 16px;
+        margin-top: 135px;
+
+        & button {
+            display: none;
+        }
+    }
+
+    .searchField {
+        width: 100%;
+        padding: 4px 8px;
+
+        & input {
+            margin: 0;
+        }
+    }
+
+    .addTaskBox {
+        width: 100%;
+        right: 0;
+        position: fixed;
+        top: 96px;
+        margin-top: 0;
+        height: calc(100vh - 96px - 76px);
+        left: 0;
+        align-items: center;
+        border-radius: 0;
+        overflow-y: auto;
+
+        & button {
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 8px;
+        }
+    }
+
+    .categoryAndClose h1 {
+        font-size: 24px;
+    }
+
+    .addTaskHeadline {
+        display: none;
+    }
+
+    .detailViewBox {
+        width: 90%;
+        z-index: 100 !important;
+
+        & h1 {
+            font-size: 24px;
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .mainContent {
+        display: flex !important;
+    }
+
+    .toDoDiv {
+        min-height: 600px;
+    }
+
+    .detailViewBox {
+        min-width: 450px;
+        min-height: 600px;
+    }
+
+    .btnsBoardAddTask button:nth-child(1) {
+        display: none;
+    }
+}

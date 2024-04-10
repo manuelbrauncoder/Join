@@ -1,0 +1,202 @@
+@media screen and (max-width:1200px) {
+
+    .floatingTop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .contactSection {
+        margin: 0;
+    }
+
+    .addBtnDiv,
+    .btnCancel,
+    .floatingBtn,
+    #contactInfo {
+        display: none;
+    }
+
+
+    .contactList {
+        margin-top: 0;
+        width: 100vw;
+        /* overflow-y: visible; */
+        transform: translateX(0);
+        padding: 0 24px;
+    }
+
+    #floatingContact {
+        transition: all 200ms ease-in-out;
+        position: fixed;
+        left: 16px;
+        background-color: white;
+        padding: 48px 0px 0 0px;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #allContacts {
+        padding-bottom: 100px;
+    }
+
+    #contactMobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 64px;
+        height: 64px;
+        margin: 0;
+    }
+
+    #closePopup {
+        border-top-left-radius: 30px !important;
+        border-top-right-radius: 30px !important;
+    }
+
+    .overlayContactPopup {
+        max-width: 396px;
+        width: 90%;
+        height: 90%;
+        border: none;
+    }
+
+    form {
+        height: 432px;
+    }
+
+    .avatarDiv {
+        padding: 0;
+        margin-top: -60px;
+    }
+
+    #topPopup {
+        height: 248px;
+
+        img {
+            display: none;
+        }
+
+        p {
+            font-size: 21px;
+        }
+    }
+
+    #bottomPopup {
+        border: solid 1px #E3E3E3;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .editPopupP {
+        display: flex;
+    }
+
+    .input-field {
+        width: 364px;
+    }
+
+    .btnCreate {
+        font-size: 19px;
+    }
+
+
+    #floatMobil {
+        display: flex;
+    }
+
+    #contactMobileFloat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 64px;
+        height: 64px;
+        margin: 0;
+        z-index: 3;
+    }
+
+    #popupDotMenue {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: 25px;
+        bottom: 95px;
+        width: 116px;
+        height: 100px;
+        background-color: white;
+        border: 2px solid rgba(209, 209, 209, 1);
+        border-radius: 20px 20px 0 20px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px 0px;
+        z-index: 4;
+
+        img {
+            width: 24px;
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            gap: 8px;
+
+            &:hover {
+                color: var(--clr-blue);
+                font-weight: 700;
+            }
+        }
+    }
+
+    .popupMenue {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    
+    .input-field {
+        width: auto;
+    }
+
+    form {
+        height: 320px;
+    }
+
+    #topPopup {
+        height: 180px;
+    }
+
+    #popupBtn {
+        margin: 24px 0;
+    }
+
+    #closePopup {
+        padding: 24px 24px 12px 0;
+    }
+
+    #topPopup {
+        span {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    .overlayContactPopup {
+        position: absolute !important;
+        top: 16px;
+        margin: 0 5% !important;
+    }
+}
