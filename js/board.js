@@ -8,7 +8,6 @@ async function initBoard() {
    await loadUsers();
    await loadTasks();
    renderTasksInBoard();
-   startTouchEvents();
 }
 
 /**
