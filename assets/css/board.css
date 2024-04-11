@@ -65,7 +65,30 @@ input[type="text"]:disabled {
     gap: 24px;
 }
 
-/* mobile add task */
+.firstLine {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.moveWidget {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.moveToElement {
+    background-color: rgba(162, 87, 87, 0.5);
+    padding: 4px;
+    border-radius: 100vw;
+}
+
 .addTaskboxMobile {
     position: static;
     align-items: center;
@@ -79,7 +102,6 @@ input[type="text"]:disabled {
     }
 }
 
-/* mobile add task */
 .addTaskHeadline {
     display: flex;
     justify-content: space-between;
