@@ -2,7 +2,7 @@
  * @file storage.js
  * This file is used to handle the storage of the application * 
  */
-const STORAGE_TOKEN = 'FOQ59STJFAGBFPPP9W1RP2EHAKEF90DYTULV2A3Q';
+const STORAGE_TOKEN = 'OH2O2V56JBFNAYI3VP8UZKZ21D6NA1XGM5392R04';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 /**
