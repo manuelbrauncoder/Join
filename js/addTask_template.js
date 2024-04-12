@@ -180,10 +180,17 @@ function printAssignedToDetails(contact, contactId) {
 function printTasksInBoard(task, index, subTasksLength) {
     return /*html*/ `
         <div id="todobox${index}" onclick="showDetailBox(${index})" class="todoBox cp" draggable="true" ondragstart="startDragging(${index})">
-            <div id="moveWidget${index}" class="moveWidget d-none"></div>
+        <div id="moveWidget${index}" class="moveWidget isHidden">
+            <span class="moveHeadline">Move to:</span>    
+            <div class="moveTextBox" id="moveText${index}"></div>
+        </div>
             <div class="firstLine">
                 <div class="todoCategory" id="todoCategory${index}">${task.category}</div>
-                <div class="moveMenu"><span onclick="showTaskMoveWidget(event, ${index})">X</span></div>
+                <div onclick="showTaskMoveWidget(event, ${index})">
+                    <label class="hamburger-menu">
+                        <input id="input-burger${index}" type="checkbox" disabled>
+                    </label>
+                </div>
             </div>                         
             <div id="todoTitle"><h2 class="colorMain2">${task.title}</h2></div>
             <div id="todoDescription"><span class="colorlightGrey">${task.description}</span></div>

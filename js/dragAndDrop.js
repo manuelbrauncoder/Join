@@ -53,9 +53,12 @@ function getElementById(id) {
 
 function showTaskMoveWidget(event, index) {
     event.stopPropagation();
+    let input = getElementById(`input-burger${index}`);
+    let moveText = getElementById(`moveText${index}`);
+    input.checked = !input.checked;
     let element = getElementById(`moveWidget${index}`)
-    element.classList.toggle('d-none');
-    renderMoves(index, element);
+    element.classList.toggle('isHidden');
+    renderMoves(index, moveText);
 }
 
 let possibleMoves;

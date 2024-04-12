@@ -72,22 +72,125 @@ input[type="text"]:disabled {
     justify-content: space-between;
 }
 
+.isHidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 400ms;
+}
+
 .moveWidget {
     position: absolute;
-    top: 48px;
+    top: 54px;
     right: 0;
     background-color: rgba(255, 255, 255, 1);
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding: 12px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: opacity 400ms;
+
+    & span {
+        color: rgba(168, 168, 168, 1);
+    }
+}
+
+.moveHeadline {
+    font-weight: 700;
+}
+
+.moveTextBox {
+    display: flex;
+    flex-direction: column;
 }
 
 .moveToElement {
-    background-color: rgba(162, 87, 87, 0.5);
-    padding: 4px;
+    padding: 4px 12px;
     border-radius: 100vw;
+
+    &:hover {
+        background-color: var(--clr-main1);
+    }
 }
+
+/* === */
+:root {
+    --bar-width: 32px;
+    --bar-height: 5px;
+    --hamburger-gap: 2px;
+    --foreground: rgba(168, 168, 168, 1);
+    --background: white;
+    --hamburger-margin: 16px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+    --foreground: rgba(168, 168, 168, 1);
+    --background: #333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 100vw;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+        rotate var(--animation-timing), translate var(--animation-timing),
+        background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+    border: unset;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+
+/* === */
+
 
 .addTaskboxMobile {
     position: static;
