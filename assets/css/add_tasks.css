@@ -39,7 +39,7 @@
 }
 
 input {
-    border: none;
+    border: unset;
     border-bottom: 1px solid black;
     padding: 8px;
     width: 100%;
@@ -472,7 +472,8 @@ textarea:hover {
     }
 
     .priorityBox {
-        width: 80px;
+        width: calc(100vw / 3.5);
+        max-width: 136px;
         gap: 4px;
         font-size: 16px;
         padding: 4px;

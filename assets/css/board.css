@@ -308,6 +308,7 @@ input[type="text"]:disabled {
 .btnsBoardAddTask {
     display: flex;
     gap: 16px;
+    margin-block: 56px;
 }
 
 .toDoDiv {
