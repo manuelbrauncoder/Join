@@ -2,8 +2,9 @@ function printAddTask() {
     return /*html*/ `
         <form id="addTaskForm" class="addTaskForm" onsubmit="addTask(); return false">
             <input type="text" placeholder="Enter a title" required id="title" class="title-input">
-            <label class="subHeadlineAddTask" for="description"><b>Description</b> (optional)</label>
-            <div class="textAreaAddTask">
+            <hr class="dividerHorizontal marginbottom24 dvTitle">
+            <label class="subHeadlineAddTask marginbottom24" for="description"><b>Description</b> (optional)</label>
+            <div class="textAreaAddTask marginbottom24">
                 <img src="/assets/img/textAreaIcon.png" alt="">
                 <textarea name="" id="description" class="description-input" placeholder="Enter a Description"></textarea>
             </div>

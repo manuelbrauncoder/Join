@@ -21,8 +21,16 @@
     overflow-y: auto;
 }
 
+#date {
+    margin-top: 8px;
+}
+
 #title {
     font-size: 32px;
+}
+
+#title:hover+.dvTitle {
+    border-top: 1px solid var(--clr-main1) !important;
 }
 
 .addTaskForm {
@@ -30,7 +38,10 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    gap: 24px;
+}
+
+.marginbottom24 {
+    margin-bottom: 24px;
 }
 
 .subHeadlineAddTask {
@@ -40,7 +51,6 @@
 
 input {
     border: unset;
-    border-bottom: 1px solid black;
     padding: 8px;
     width: 100%;
     font-size: 19px;
