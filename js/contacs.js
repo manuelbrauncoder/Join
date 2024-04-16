@@ -71,7 +71,9 @@ function contactsHTML(i) {
 function deleteUser(userIndex) {
     let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     if (userIndex !== -1) {
+        deleteContactsInTasks(userIndex);
         users.splice(userIndex, 1);
+        
     }
     setItem('users', JSON.stringify(users));
     document.getElementById('floatingContact').innerHTML = '';
@@ -200,6 +202,21 @@ async function updateContactsInTasks(i) {
                 tasks[j]['assignedTo'][k] = newName;
             }
         }
+    }
+    await saveTasks(tasks);
+}
+
+async function deleteContactsInTasks(i) {
+    let userToDelete = users[i]['name'];
+    for (let j = 0; j < tasks.length; j++) {
+        const contacts = tasks[j]['assignedTo'];
+            for (let k = 0; k < contacts.length; k++) {
+                const contact = contacts[k];
+                if(contact.toLowerCase() === userToDelete.toLowerCase()) {
+                    let arr = tasks[j]['assignedTo'];
+                    arr.splice(k, 1);
+                }
+            }
     }
     await saveTasks(tasks);
 }
