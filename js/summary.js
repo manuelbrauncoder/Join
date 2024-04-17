@@ -1,5 +1,6 @@
 /** onload summary page, with check to show greeting-slider after login below 480px */
 async function initSummary() {
+  checkLoginState();
   if (!sessionStorage.getItem('greetingShown')) {
     greetingScreen();
     sessionStorage.setItem('greetingShown', true);
