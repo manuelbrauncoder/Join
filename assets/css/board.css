@@ -470,7 +470,7 @@ progress::-webkit-progress-value {
         overflow-x: auto;
         flex-direction: row;
         height: fit-content !important;
-        padding: 8px;
+        padding: 8px 32px 8px 8px;
         min-width: 100vw;
         overflow-y: hidden;
     }
