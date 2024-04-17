@@ -8,6 +8,7 @@ async function initBoard() {
    await loadUsers();
    await loadTasks();
    renderTasksInBoard();
+   checkLoginState();
 }
 
 /**

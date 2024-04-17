@@ -8,6 +8,7 @@ async function initContacts() {
     await loadUsers();
     await loadTasks();
     renderContactList();
+    checkLoginState();
 }
 
 /**
@@ -206,6 +207,11 @@ async function updateContactsInTasks(i) {
     await saveTasks(tasks);
 }
 
+
+/**
+ * delete contacts in tasks
+ * @param {number} i 
+ */
 async function deleteContactsInTasks(i) {
     let userToDelete = users[i]['name'];
     for (let j = 0; j < tasks.length; j++) {

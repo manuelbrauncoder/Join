@@ -14,6 +14,7 @@ async function initAddTask() {
     renderAddTask('addTaskContainer');
     initializeAndListen();
     setPriority('Medium');
+    checkLoginState();
 }
 
 /**

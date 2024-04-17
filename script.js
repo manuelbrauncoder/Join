@@ -72,6 +72,14 @@ function goBack() {
   console.log('Final history length:', window.history.length);
 }
 
+function checkLoginState() {
+  if(!sessionStorage.getItem('isLoggedIn')) {
+    if(window.location.pathname !== '/index.html') {
+      window.location.href = '/index.html';
+    }
+  } 
+}
+
 
 
 

@@ -23,6 +23,7 @@ function logIn() {
   }
 }
 
+
 /**
  * Checks if the provided email and password match a user in the database.
  * @param {string} email - The email to be verified.
