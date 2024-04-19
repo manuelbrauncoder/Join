@@ -495,3 +495,15 @@ a {
     background: rgba(168, 168, 168, 0.7);
     cursor: pointer;
 }
+
+@media screen and (min-width: 320px) and (max-width: 933px) and (orientation: landscape) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
