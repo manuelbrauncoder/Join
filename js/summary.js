@@ -9,6 +9,7 @@ async function initSummary() {
   await loadTasks();
   loginStatus();
   counterSummery(tasks);
+  fillCorrectPlural();
 }
 
 /** check who is logged in */
@@ -106,4 +107,60 @@ function compareDates(a, b) {
   a = new Date(a.date);
   b = new Date(b.date);
   return a.getTime() - b.getTime();
+}
+
+/**
+ * counts the tasks with the same category together
+ * @param {string} status taskstatus
+ * @param {number} id for the html tag
+ * @param {string} key for the object
+ */
+function isPluralOrNot(status, id, key) {
+  let container = document.getElementById(id);
+  container.innerHTML = '';
+  let tasksToCheck = 0;
+  for (let i = 0; i < tasks.length; i++) {
+    const taskStatus = tasks[i][key];
+    if (taskStatus.toLowerCase() == status.toLowerCase()) {
+      tasksToCheck++;
+    }
+  }
+  printTaskString(container, status, tasksToCheck);
+}
+
+/**
+ * counts all tasks
+ */
+function getAllTasks() {
+  let container = document.getElementById('allTasksSum');
+  container.innerHTML = '';
+  let status = 'in Board';
+  let allTasks = tasks.length;
+  printTaskString(container, status, allTasks);
+}
+
+/**
+ * call functions with differt params
+ */
+function fillCorrectPlural() {
+  isPluralOrNot('Done', 'tasksDoneSum', 'status');
+  isPluralOrNot('Await feedback', 'tasksFeedbackSum', 'status');
+  isPluralOrNot('In progress', 'tasksProgressSum', 'status');
+  isPluralOrNot('To Do', 'tasksTodoSum', 'status');
+  isPluralOrNot('Urgent', 'urgentTasksSum', 'priority');
+  getAllTasks();
+}
+
+/**
+ * print the html, with task or tasks
+ * @param {*} container 
+ * @param {*} status 
+ * @param {*} tasksToCheck 
+ */
+function printTaskString(container, status, tasksToCheck) {
+  if (tasksToCheck == 1) {
+    container.innerHTML += `Task ${status}`;
+  } else {
+    container.innerHTML += `Tasks ${status}`;
+  }
 }
