@@ -5,6 +5,58 @@
 const STORAGE_TOKEN = 'OH2O2V56JBFNAYI3VP8UZKZ21D6NA1XGM5392R04';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
+const FIRE_URL = 'https://join-84df0-default-rtdb.europe-west1.firebasedatabase.app/';
+let fireUsers = [];
+
+async function putData(path = '', data = {}) {
+  try {
+    let response = await fetch(FIRE_URL + path + '.json', {
+      method: "put",
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  } catch (error) {
+    console.log(error);
+  }  
+}
+
+/**
+ * start with id 0, increase id +1 after each upload
+ */
+async function prepareUserDataForUpload() {
+  let id = 0;
+  users.forEach(user => {
+    putData(`users/${id}`, user);
+    id++;
+  })
+  console.log(users);
+}
+
+
+async function loadUsers(path = "") {
+  try {
+    let response = await fetch(FIRE_URL + path + '.json');
+    let responseToJson = await response.json();
+    let userKeyArr = Object.keys(responseToJson);
+    let userCache = [];
+    let cleanUsers = [];
+    for (let i = 0; i < userKeyArr.length; i++) {
+      const key = userKeyArr[i];
+      userCache.push({ user: responseToJson[key] });
+    }
+    cleanUsers = userCache.map(item => item.user);
+    users = cleanUsers.length > 0 ? cleanUsers : localUsers.slice();
+    console.log(users);
+  } catch (error) {
+    console.log('error fetching data:', error);
+    users = localUsers.slice();
+    console.log(users);
+    
+  }
+}
+
 /**
  * Uploads data into the backend.
  * @param {key} key - data name (key)
@@ -199,7 +251,7 @@ function resetStorage(event) {
 /**
  * Asynchronously loads users data, handling errors by falling back to local data.
  */
-async function loadUsers() {
+async function loadUsers_OLD() {
   try {
     const usersJSON = await getItem('users');
     users = usersJSON ? JSON.parse(usersJSON) : localUsers.slice();

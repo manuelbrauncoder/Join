@@ -5,7 +5,7 @@ let nameToUpdate;
  */
 async function initContacts() {
     await includeHTML();
-    await loadUsers();
+    await loadUsers('users');
     await loadTasks();
     renderContactList();
 }
