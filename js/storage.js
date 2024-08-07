@@ -6,8 +6,12 @@ const STORAGE_TOKEN = 'OH2O2V56JBFNAYI3VP8UZKZ21D6NA1XGM5392R04';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 const FIRE_URL = 'https://join-84df0-default-rtdb.europe-west1.firebasedatabase.app/';
-let fireUsers = [];
-
+let fireTasks = [];
+/**
+ * put data to firebase storage
+ * @param {string} path for the firebase storage / ('users' or 'tasks')
+ * @param {object} data 
+ */
 async function putData(path = '', data = {}) {
   try {
     let response = await fetch(FIRE_URL + path + '.json', {
@@ -20,6 +24,15 @@ async function putData(path = '', data = {}) {
   } catch (error) {
     console.log(error);
   }  
+}
+
+async function prepareTasksForUpload() {
+  let id = 0;
+  tasks.forEach(task => {
+    putData(`tasks/${id}`, task);
+    id++;
+  })
+  console.log(tasks);
 }
 
 /**
@@ -35,24 +48,48 @@ async function prepareUserDataForUpload() {
 }
 
 
-async function loadUsers(path = "") {
+async function loadUsers() {
+  let path = 'users';
   try {
     let response = await fetch(FIRE_URL + path + '.json');
     let responseToJson = await response.json();
-    let userKeyArr = Object.keys(responseToJson);
-    let userCache = [];
-    let cleanUsers = [];
-    for (let i = 0; i < userKeyArr.length; i++) {
-      const key = userKeyArr[i];
-      userCache.push({ user: responseToJson[key] });
+    let keyArr = Object.keys(responseToJson);
+    let cache = [];
+    let cleanArr = [];
+    for (let i = 0; i < keyArr.length; i++) {
+      const key = keyArr[i];
+      cache.push({ user: responseToJson[key] });
     }
-    cleanUsers = userCache.map(item => item.user);
-    users = cleanUsers.length > 0 ? cleanUsers : localUsers.slice();
+    cleanArr = cache.map(item => item.user);
+    users = cleanArr.length > 0 ? cleanArr : localUsers.slice();
     console.log(users);
   } catch (error) {
     console.log('error fetching data:', error);
     users = localUsers.slice();
     console.log(users);
+    
+  }
+}
+
+async function loadTasks() {
+  path = 'tasks';
+  try {
+    let response = await fetch(FIRE_URL + path + '.json');
+    let responseToJson = await response.json();
+    let keyArr = Object.keys(responseToJson);
+    let cache = [];
+    let cleanArr = [];
+    for (let i = 0; i < keyArr.length; i++) {
+      const key = keyArr[i];
+      cache.push({ task: responseToJson[key] });
+    }
+    cleanArr = cache.map(item => item.task);
+    tasks = cleanArr.length > 0 ? cleanArr : localTasks.slice();
+    console.log(tasks);
+  } catch (error) {
+    console.log('error fetching data:', error);
+    tasks = localTasks.slice();
+    console.log(tasks);
     
   }
 }
@@ -267,7 +304,7 @@ async function loadUsers_OLD() {
  * Loads tasks from storage and initializes the tasks array.
  * @return {Promise<void>} 
  */
-async function loadTasks() {
+async function loadTasks_OLD() {
   try {
     const tasksJSON = await getItem('tasks');
     tasks = tasksJSON ? JSON.parse(tasksJSON) : [];

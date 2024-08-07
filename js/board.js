@@ -148,6 +148,10 @@ function checkIfSubtasksEmtpty(index) {
 function calculateSubtasksDone(index) {
    let counter = 0;
    let subtasksObjects = tasks[index]['subtasks'];
+   if (!subtasksObjects) {
+      tasks[index]['subtasks'] = [];
+      return 0;
+   }
    for (let i = 0; i < subtasksObjects.length; i++) {
       const subtask = subtasksObjects[i];
       if (subtask.done === true) {
