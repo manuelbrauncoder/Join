@@ -203,6 +203,8 @@ async function loadUsers() {
   try {
     const usersJSON = await getItem('users');
     users = usersJSON ? JSON.parse(usersJSON) : localUsers.slice();
+    console.log('Loaded Users:', users);
+    
   } catch (e) {
     console.error('Loading error:', e);
     users = localUsers.slice();
@@ -217,6 +219,8 @@ async function loadTasks() {
   try {
     const tasksJSON = await getItem('tasks');
     tasks = tasksJSON ? JSON.parse(tasksJSON) : [];
+    console.log('Loaded Tasks:', tasks);
+    
   } catch {
     tasks = [];
   }
