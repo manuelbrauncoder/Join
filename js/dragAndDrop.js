@@ -39,7 +39,7 @@ function allowDrop(event) {
 async function moveTo(category) {
     tasks[elementToDrag]['status'] = category;
     renderTasksInBoard();
-    await saveTasks(tasks);
+    await prepareDataForUpload("tasks", tasks);
 }
 
 /**
