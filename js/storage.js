@@ -6,7 +6,7 @@ const STORAGE_TOKEN = 'OH2O2V56JBFNAYI3VP8UZKZ21D6NA1XGM5392R04';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 const FIRE_URL = 'https://join-84df0-default-rtdb.europe-west1.firebasedatabase.app/';
-let fireTasks = [];
+
 /**
  * put data to firebase storage
  * @param {string} path for the firebase storage / ('users' or 'tasks')
@@ -23,7 +23,7 @@ async function putData(path = '', data = {}) {
     });
   } catch (error) {
     console.log(error);
-  }  
+  }
 }
 
 /**
@@ -41,25 +41,18 @@ async function prepareDataForUpload(path, arr) {
   console.log(arr);
 }
 
-/**
- * generate id for firebase, and put data to firebase
- * @param {string} path for firebase
- * @param {Array} arr choose array for upload, localUsers for fallback, or users
- */
-// async function prepareUserDataForUpload(path, arr) {
-//   await deleteStorage(path);
-//   let id = 0;
-//   arr.forEach(user => {
-//     putData(`users/${id}`, user);
-//     id++;
-//   })
-//   console.log(arr);
-// }
+
 
 async function deleteStorage(path = "") {
-  let response = await fetch(FIRE_URL + path + '.json',{
-    method: "Delete"
-  });
+  try {
+    await fetch(FIRE_URL + path + '.json', {
+      method: "Delete"
+    });
+  } catch (error) {
+    console.log('Error deleting Data', err);
+
+  }
+
 }
 
 
@@ -80,7 +73,7 @@ async function loadUsers() {
   } catch (error) {
     console.log('error fetching data:', error);
     users = localUsers.slice();
-    
+
   }
 }
 
@@ -307,7 +300,7 @@ async function loadUsers_OLD() {
     const usersJSON = await getItem('users');
     users = usersJSON ? JSON.parse(usersJSON) : localUsers.slice();
     console.log('Loaded Users:', users);
-    
+
   } catch (e) {
     console.error('Loading error:', e);
     users = localUsers.slice();
@@ -323,7 +316,7 @@ async function loadTasks_OLD() {
     const tasksJSON = await getItem('tasks');
     tasks = tasksJSON ? JSON.parse(tasksJSON) : [];
     console.log('Loaded Tasks:', tasks);
-    
+
   } catch {
     tasks = [];
   }

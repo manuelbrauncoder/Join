@@ -32,7 +32,7 @@ function register() {
 async function handleSignUp(name, email, password, confirmedPassword, bgColor) {
   if (errorMsgPasswordConfirm(confirmedPassword, password)) {
     users.push({ name: name, email: email, password: password, phone: null, bg: bgColor });
-    await setItem('users', JSON.stringify(users));
+    await prepareDataForUpload("users", users);
     resetForm();
     popup();
   } else {

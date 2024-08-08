@@ -68,12 +68,13 @@ function contactsHTML(i) {
  * delete the user from the array * 
  * @param {integer} userIndex to delete the correct contact
  */
-function deleteUser(userIndex) {
+async function deleteUser(userIndex) {
     let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     if (userIndex !== -1) {
         users.splice(userIndex, 1);
     }
-    setItem('users', JSON.stringify(users));
+    //setItem('users', JSON.stringify(users));
+    await prepareDataForUpload("users", users);
     document.getElementById('floatingContact').innerHTML = '';
     renderContactList();
     if (screenWidth <= 1024) {
@@ -154,7 +155,7 @@ async function createNewContact() {
             phone: phone,
             bg: bgColor,
         });
-        await setItem('users', JSON.stringify(users));
+        await prepareDataForUpload("users", users);
         successfullyPopupAddContact();
         closePopup();
     }
@@ -201,7 +202,7 @@ async function updateContactsInTasks(i) {
             }
         }
     }
-    await saveTasks(tasks);
+    await prepareDataForUpload("tasks", tasks);
 }
 
 /**
@@ -248,8 +249,8 @@ function saveUser(i) {
  * Saves the 'users' data to storage and retrieves it.
  */
 async function saveStorageUser() {
-    await setItem('users', JSON.stringify(users));
-    await getItem('users');
+    await prepareDataForUpload("users", users);
+    await loadUsers();
 }
 
 /**
