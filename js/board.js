@@ -85,7 +85,10 @@ function setDefaultValues(status) {
  */
 function hideAddTaskBox() {
    clearAddTask();
-   document.getElementById('mainContent').style.position = 'relative';
+   const mainContent = document.getElementById('mainContent');
+   if (mainContent) {
+      mainContent.style.position = 'relative';
+   } 
    if (window.location.pathname.endsWith('/board.html')) {
       let box = document.getElementById('addTaskBox');
       box.style.right = '-1000px';
@@ -116,6 +119,9 @@ function renderTasksInBoard() {
    for (let i = 0; i < tasks.length; i++) {
       const task = tasks[i];
       let status = task['status'];
+      if (!task['assignedTo']) {
+         task['assignedTo'] = [];
+      }
       let contacts = task['assignedTo'];
       let subTasksDoneLength = calculateSubtasksDone(i);
       let container = checkContainer(status);
@@ -194,6 +200,7 @@ function getColorForCategory(index, container) {
  * @param {int} i 
  */
 function renderAssignedTo(contacts, i) {
+   
    let assignedToContainer = document.getElementById(`todoAssignedTo${i}`);
    assignedToContainer.innerHTML = '';
    let maxContacts;
@@ -276,10 +283,10 @@ function checkContainer(status) {
 async function checkRenderTasks() {
    if (searchedTasks == null || searchedTasks == "" || searchedTasks.length < 1) {
       renderTasksInBoard();
-      await saveTasks(tasks);
+      await prepareDataForUpload("tasks", tasks);
    } else {
       renderSearchedTasks();
-      await saveTasks(tasks);
+      await prepareDataForUpload("tasks", tasks);
    }
 }
 

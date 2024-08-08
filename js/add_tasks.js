@@ -71,7 +71,7 @@ function initializeAndListen() {
 async function addTask() {
     let newTask = createTask();
     tasks.push(newTask);
-    await saveTasks(tasks);
+    await prepareDataForUpload('tasks', tasks);
     resetInputsAndSelections();
     successfullyPopupAddTask();
     hideAddTaskBox();

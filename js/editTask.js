@@ -138,7 +138,9 @@ function renderContacts(container, contacts, maxContacts, index) {
  */
 async function deleteTask(index) {
    tasks.splice(index, 1);
-   await saveTasks(tasks);
+   console.log(tasks);
+   
+   await prepareDataForUpload("tasks", tasks);
    checkRenderTasks();
    hideDetailBox();
 }
@@ -153,7 +155,7 @@ async function toggleSubtasks(taskIndex, subtaskIndex) {
    subtask.done = !subtask.done;
    renderSubTasksDetailView(taskIndex);
    renderTasksInBoard();
-   await saveTasks(tasks);
+   await prepareDataForUpload("tasks", tasks);;
 }
 
 /**
@@ -207,7 +209,7 @@ async function saveEditedTask() {
    let index = editTaskIndex;
    let editedTask = createTask()
    tasks.splice(index, 1, editedTask);
-   await saveTasks(tasks);
+   await prepareDataForUpload("tasks", tasks);
    resetInputsAndSelections();
    hideEditbox();
    renderDetails(index);

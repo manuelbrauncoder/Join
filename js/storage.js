@@ -26,25 +26,40 @@ async function putData(path = '', data = {}) {
   }  
 }
 
-async function prepareTasksForUpload() {
+/**
+ * generate id for firebase, and put data to firebase
+ * @param {string} path for firebase
+ * @param {*} arr to upload
+ */
+async function prepareDataForUpload(path, arr) {
+  await deleteStorage(path);
   let id = 0;
-  tasks.forEach(task => {
-    putData(`tasks/${id}`, task);
+  arr.forEach(data => {
+    putData(`${path}/${id}`, data);
     id++;
   })
-  console.log(tasks);
+  console.log(arr);
 }
 
 /**
- * start with id 0, increase id +1 after each upload
+ * generate id for firebase, and put data to firebase
+ * @param {string} path for firebase
+ * @param {Array} arr choose array for upload, localUsers for fallback, or users
  */
-async function prepareUserDataForUpload() {
-  let id = 0;
-  users.forEach(user => {
-    putData(`users/${id}`, user);
-    id++;
-  })
-  console.log(users);
+// async function prepareUserDataForUpload(path, arr) {
+//   await deleteStorage(path);
+//   let id = 0;
+//   arr.forEach(user => {
+//     putData(`users/${id}`, user);
+//     id++;
+//   })
+//   console.log(arr);
+// }
+
+async function deleteStorage(path = "") {
+  let response = await fetch(FIRE_URL + path + '.json',{
+    method: "Delete"
+  });
 }
 
 
@@ -62,11 +77,9 @@ async function loadUsers() {
     }
     cleanArr = cache.map(item => item.user);
     users = cleanArr.length > 0 ? cleanArr : localUsers.slice();
-    console.log(users);
   } catch (error) {
     console.log('error fetching data:', error);
     users = localUsers.slice();
-    console.log(users);
     
   }
 }
@@ -85,12 +98,9 @@ async function loadTasks() {
     }
     cleanArr = cache.map(item => item.task);
     tasks = cleanArr.length > 0 ? cleanArr : localTasks.slice();
-    console.log(tasks);
   } catch (error) {
     console.log('error fetching data:', error);
     tasks = localTasks.slice();
-    console.log(tasks);
-    
   }
 }
 
@@ -100,7 +110,7 @@ async function loadTasks() {
  * @param {array} value - data array to upload
  * @returns - promise
  */
-async function setItem(key, value) {
+async function setItem_OLD(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
     .then(res => res.json());
@@ -111,7 +121,7 @@ async function setItem(key, value) {
  * @param {key} key - key name to fetch
  * @returns - promise + JSON
  */
-async function getItem(key) {
+async function getItem_OLD(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url).then(res => res.json()).then(res => {
     if (res.data) {
@@ -272,13 +282,17 @@ let localTasks = [
  * Resets the storage if shift key is pressed during the event. *
  * @param {Event} event - The event triggering the function
  */
-function resetStorage(event) {
+async function resetStorage(event) {
   resetButton = document.getElementById('resetStorage');
   if (event.shiftKey) {
     const confirmation = confirm("Are you sure you want to reset remote storage? This action cannot be undone.");
     if (confirmation) {
-      setItem('users', JSON.stringify(localUsers));
-      setItem('tasks', JSON.stringify(localTasks));
+      //setItem('users', JSON.stringify(localUsers));
+      //setItem('tasks', JSON.stringify(localTasks));
+      //await deleteStorage("users");
+      //await deleteStorage("tasks");
+      await prepareDataForUpload('users', localUsers);
+      await prepareDataForUpload('tasks', localTasks);
       alert('remote Storage is resetet!');
       location.reload();
     }
@@ -320,6 +334,6 @@ async function loadTasks_OLD() {
  * @param {Array} tasks - The tasks to be saved.
  * @return {Promise} A promise that resolves after saving the tasks.
  */
-async function saveTasks(tasks) {
+async function saveTasks_OLD(tasks) {
   await setItem('tasks', JSON.stringify(tasks));
 }
