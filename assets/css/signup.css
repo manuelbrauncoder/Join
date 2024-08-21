@@ -16,6 +16,7 @@ footer a {
 }
 
 .checkbox {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -36,6 +37,15 @@ footer a {
             color: var(--clr-lightblue);
         }
     }
+}
+
+
+.check{
+    visibility: hidden;
+    opacity: 1;
+    position: absolute;
+    left: 50%;
+    width: fit-content;
 }
 
 .sign-up-container {

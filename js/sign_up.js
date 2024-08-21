@@ -85,6 +85,7 @@ function displayEmailInUseError() {
  * Function to handle signup process based on checkbox state.
  */
 function checkedSignup() {
+  toggleCheckbox();
   const checkbox = document.getElementById('accept-policy');
   let button = document.getElementById('signupBtn');
   checkbox.src.includes('unchecked') ? (
@@ -92,6 +93,16 @@ function checkedSignup() {
   ) : (
     checkbox.src = 'assets/img/check_unchecked.png', button.disabled = true, button.classList.add('btn-disabled')
   );
+}
+
+function toggleCheckbox(){
+  const input = document.getElementById('check-icon');
+  if (input.checked === false) {
+    input.checked = true;
+    
+  } else {
+    input.checked = false;
+  }
 }
 
 /**
