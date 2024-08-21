@@ -251,7 +251,7 @@ function BtnClickable() {
  * overwrite and save the contact content * 
  * @param {integer} i to overwrite the correct contact
  */
-function saveUser(i) {
+async function saveUser(i) {
     let name = document.getElementById('contactName').value;
     let email = document.getElementById('contactEmail').value;
     let phone = document.getElementById('contactPhone').value;
@@ -259,7 +259,7 @@ function saveUser(i) {
     users[i]['email'] = email;
     users[i]['phone'] = phone;
     updateContactsInTasks(i);
-    saveStorageUser(i);
+    await saveStorageUser(i);
     
     document.getElementById('floatingContact').innerHTML = '';
     renderContactList();
