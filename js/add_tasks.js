@@ -94,7 +94,8 @@ function createSubtaskObject() {
 /** Popup nach erfolgreicher Task Erstellung */
 function successfullyPopupAddTask() {
     const animation = document.getElementById('popupAddtask');
-    animation.classList.remove('d-none');
+    if (animation) {
+        animation.classList.remove('d-none');
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -107,6 +108,8 @@ function successfullyPopupAddTask() {
         }
         window.location.href = './board.html';
     }, 1000);
+    }
+    
 }
 
 /**

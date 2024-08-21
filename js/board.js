@@ -85,8 +85,8 @@ function setDefaultValues(status) {
  */
 function hideAddTaskBox() {
    clearAddTask();
-   document.getElementById('mainContent').style.position = 'relative';
    if (window.location.pathname.endsWith('/board.html')) {
+      document.getElementById('mainContent').style.position = 'relative';
       let box = document.getElementById('addTaskBox');
       box.style.right = '-1000px';
       setTimeout(() => {
