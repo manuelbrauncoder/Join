@@ -18,7 +18,6 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    overflow-y: auto;
 }
 
 #date {
@@ -296,6 +295,8 @@ textarea:hover {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    height: 220px;
+    overflow-y: auto;
 
     margin-top: 8px;
 

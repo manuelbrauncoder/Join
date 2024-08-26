@@ -87,6 +87,11 @@ a {
     }
 }
 
+.legal-a-tag {
+    color: black;
+    text-decoration: underline;
+}
+
 .blue-btn {
     display: flex;
     justify-content: center;

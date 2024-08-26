@@ -56,7 +56,7 @@ function printAddTask() {
                 </div>
             </div>
         </div>
-        <div class="category overFlowYAuto listenDropDown">
+        <div class="category listenDropDown">
             <span class="subHeadlineAddTask">Assigned to (optional)</span>
             <div>
                 <div class="customSelect" id="searchUserBtn">

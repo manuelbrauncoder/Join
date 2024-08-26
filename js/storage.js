@@ -43,45 +43,52 @@ function logout() {
 let localUsers = [
   {
     "name": "Guest",
-    "email": "guest@guest.de",
-    "password": "12345",
-    "bg": "rgb(30,60,17)",
+    "email": "guest@user.com",
+    "password": "7236477",
+    "phone": "+49 175 554444",
+    "bg": "rgb(204, 204, 153)"
   },
   {
-    "name": "Tim Cook",
-    "email": "tim.cook@example.com",
-    "password": "Cook#Apple5",
-    "phone": "017852546",
-    "bg": "rgb(44,75,17)",
+    "name": "Anna Schmidt",
+    "email": "anna.schmidt@example.com",
+    "password": "SicheresPasswort123!",
+    "phone": "+49 171 1234567",
+    "bg": "rgb(204, 153, 153)"
   },
   {
-    "name": "Steve Jobs",
-    "email": "steve.jobs@example.com",
-    "password": "Jobs#Apple1",
-    "phone": "017852546",
-    "bg": "rgb(124,169,74)",
-
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "MySecurePassword2024#",
+    "phone": "+1 202 555 0198",
+    "bg": "rgb(153, 204, 178)"
   },
   {
-    "name": "Bill Gates",
-    "email": "bill.gates@example.com",
-    "password": "Gates@Microsoft2",
-    "phone": "017852546",
-    "bg": "rgb(7,122,50)",
+    "name": "Maria Müller",
+    "email": "maria.mueller@example.com",
+    "password": "Passwort!987",
+    "phone": "+49 30 9876543",
+    "bg": "rgb(204, 204, 153)"
   },
   {
-    "name": "Linus Torvalds",
-    "email": "linus.torvalds@example.com",
-    "password": "Torvalds#Linux3",
-    "phone": "017852546",
-    "bg": "rgb(47,57,103)",
+    "name": "David Johnson",
+    "email": "david.johnson@example.com",
+    "password": "P@sswordSecure456",
+    "phone": "+44 20 7946 0958",
+    "bg": "rgb(153, 153, 204)"
   },
   {
-    "name": "Sam Altman",
-    "email": "sam.altman@example.com",
-    "password": "Altman#YCombinator4",
-    "phone": "017852546",
-    "bg": "rgb(22,7120,160)",
+    "name": "Laura Fischer",
+    "email": "laura.fischer@example.com",
+    "password": "LauraPasswort#456",
+    "phone": "+49 89 1234567",
+    "bg": "rgb(204, 178, 153)"
+  },
+  {
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "password": "BrownsP@ssw0rd!",
+    "phone": "+1 212 555 0110",
+    "bg": "rgb(178, 153, 204)"
   }
 ];
 
@@ -89,10 +96,10 @@ let localUsers = [
 let localTasks = [
   {
     "title": "Kochwelt Page & Recipe Recommender",
-    "description": "Build start page with recipe recommandation.",
+    "description": "Build start page with recipe recommendation.",
     "date": "Sat Mar 16 2024 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)",
     "priority": "Medium",
-    "assignedTo": ["Linus Torvalds", "Sam Altman"],
+    "assignedTo": ["Anna Schmidt", "John Doe"],
     "category": "User Story",
     "subtasks": [
       {
@@ -102,7 +109,8 @@ let localTasks = [
       {
         "name": "Style Recipe",
         "done": true
-      }],
+      }
+    ],
     "status": "In progress"
   },
   {
@@ -110,7 +118,7 @@ let localTasks = [
     "description": "Create reusable HTML base templates.",
     "date": "Sat Mar 17 2024 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)",
     "priority": "Urgent",
-    "assignedTo": ["Tim Cook", "Bill Gates"],
+    "assignedTo": ["Maria Müller", "David Johnson"],
     "category": "Technical Task",
     "subtasks": [
       {
@@ -120,7 +128,8 @@ let localTasks = [
       {
         "name": "Clean Code",
         "done": true
-      }],
+      }
+    ],
     "status": "In progress"
   },
   {
@@ -128,7 +137,7 @@ let localTasks = [
     "description": "Create database structure for the application.",
     "date": "Mon Mar 19 2024 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)",
     "priority": "Medium",
-    "assignedTo": ["Linus Torvalds", "Bill Gates"],
+    "assignedTo": ["Laura Fischer", "David Johnson"],
     "category": "Technical Task",
     "subtasks": [],
     "status": "In progress"
@@ -138,7 +147,7 @@ let localTasks = [
     "description": "Improve user interface and experience.",
     "date": "Tue Mar 20 2024 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)",
     "priority": "Low",
-    "assignedTo": ["Linus Torvalds", "Bill Gates"],
+    "assignedTo": ["Michael Brown", "Anna Schmidt"],
     "category": "User Story",
     "subtasks": [
       {
@@ -152,7 +161,8 @@ let localTasks = [
       {
         "name": "Style Sidebar",
         "done": false
-      }],
+      }
+    ],
     "status": "Await feedback"
   },
   {
@@ -160,7 +170,7 @@ let localTasks = [
     "description": "Develop login and registration functionality.",
     "date": "Sun Mar 18 2024 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)",
     "priority": "Urgent",
-    "assignedTo": ["Linus Torvalds", "Tim Cook"],
+    "assignedTo": ["Michael Brown", "Laura Fischer"],
     "category": "Technical Task",
     "subtasks": [
       {
@@ -174,7 +184,8 @@ let localTasks = [
       {
         "name": "Style login form",
         "done": false
-      }],
+      }
+    ],
     "status": "To Do"
   }
 ];
