@@ -73,6 +73,8 @@ function updateMobileLinks(activePage, links) {
     if (link.href && link.href.includes(activePage)) {
       const imageName = link.id.split("-")[0];
       const imagePath = `./assets/img/mobile_${imageName}_blue.png`;
+      console.log(imageName, imagePath);
+      
       link.getElementsByTagName("img")[0].src = imagePath;
     }
   }
